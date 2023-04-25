@@ -3,15 +3,22 @@
 		<view class="uni-container">
 			<uni-table ref="table" :loading="loading" border stripe  emptyText="暂无更多数据">
 				<uni-tr>
-					<uni-th width="80" align="center">姓名</uni-th>
-					<uni-th width="120" align="center">日期</uni-th>
-					<uni-th width="160" align="center">设置</uni-th>
+					<uni-th align="center">被借人</uni-th>
+					<uni-th align="center">被借金额(单位w)</uni-th>
+					<uni-th align="center">还款日期</uni-th>
+					<uni-th align="center">还款金额(单位w)</uni-th>
+					<uni-th align="center">剩余金额(单位w)</uni-th>
+					<uni-th align="left">备注</uni-th>
 				</uni-tr>
 				<uni-tr v-for="(item, index) in tableData" :key="index">
 					<uni-td>
-						<view class="name">{{ item.name }}</view>
+						<view class="borrowerName">{{ item.borrowerName }}</view>
 					</uni-td>
-					<uni-td>{{ item.date }}</uni-td>
+					<uni-td>{{ item.borrowedAmount }}</uni-td>
+					<uni-td>{{ item.repaymentDate }}</uni-td>
+					<uni-td>{{ item.repaymentAmount }}</uni-td>
+					<uni-td>{{ item.residualAmount }}</uni-td>
+					<uni-td>{{ item.remark }}</uni-td>
 					<uni-td>
 						<view class="uni-group">
 							<button class="uni-button" size="mini" type="primary">修改</button>
@@ -84,7 +91,7 @@ export default {
 			if (value) {
 				data = []
 				tableData.forEach(item => {
-					if (item.name.indexOf(value) !== -1) {
+					if (item.borrowerName.indexOf(value) !== -1) {
 						data.push(item)
 					}
 				})
