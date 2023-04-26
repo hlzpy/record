@@ -25,6 +25,12 @@
         "iconPath": "static/home.png",
         "selectedIconPath": "static/home-active.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/repayment-list/repayment-list",
+        "iconPath": "static/list.png",
+        "selectedIconPath": "static/list-active.png",
+        "text": "列表"
       }
     ]
   },
